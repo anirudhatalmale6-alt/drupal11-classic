@@ -17,6 +17,7 @@ scripts/                     idempotent build scripts — see "Rebuilding" below
 web/themes/custom/classic/   the theme
 docs/UPGRADE.md              the Drupal 8 → 11 runbook
 docs/EDITOR-GUIDE.md         day-to-day guide for whoever runs the site
+docs/SITE-AUDIT-…            what the existing Drupal 8 site is running
 ```
 
 ## Content types
