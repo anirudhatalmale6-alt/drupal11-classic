@@ -1,0 +1,25 @@
+uuid: f90d682e-3105-4945-8c1c-b50f79c69c22
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - classic
+id: classic_footer_menu
+theme: classic
+region: footer_second
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: More
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

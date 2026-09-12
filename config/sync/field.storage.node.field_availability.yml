@@ -1,0 +1,33 @@
+uuid: ec9b234b-28be-4b89-9894-35ba82c56f46
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_availability
+field_name: field_availability
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: in_stock
+      label: 'In stock'
+    -
+      value: made_to_order
+      label: 'Made to order'
+    -
+      value: out_of_stock
+      label: 'Out of stock'
+    -
+      value: discontinued
+      label: Discontinued
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

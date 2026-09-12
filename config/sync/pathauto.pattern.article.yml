@@ -1,0 +1,23 @@
+uuid: 6a562377-840a-4e21-9641-f38a2c6a31af
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+  module:
+    - node
+id: article
+label: Article
+type: 'canonical_entities:node'
+pattern: '/journal/[node:title]'
+selection_criteria:
+  6b4e10cc-c178-465b-bf7b-ed4b9eef508a:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+selection_logic: and
+weight: 0
+relationships: {  }

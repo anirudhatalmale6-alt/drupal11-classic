@@ -1,0 +1,19 @@
+uuid: 0c988d2b-be13-43e4-87a6-09cef8388dd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_materials
+    - node.type.product
+id: node.product.field_materials
+field_name: field_materials
+entity_type: node
+bundle: product
+label: Materials
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

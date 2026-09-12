@@ -1,0 +1,21 @@
+uuid: cf30ba4b-8a2b-4c54-b1f2-681f28c9067f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_contributor_location
+field_name: field_contributor_location
+entity_type: node
+type: string
+settings:
+  max_length: 128
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

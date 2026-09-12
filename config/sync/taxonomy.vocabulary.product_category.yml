@@ -1,0 +1,9 @@
+uuid: 3ae7d999-62b9-464b-b1a7-4b69f6699eb1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Product categories'
+vid: product_category
+description: 'Catalogue sections used to group product listings.'
+weight: 0
+new_revision: false

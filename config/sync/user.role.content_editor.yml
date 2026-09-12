@@ -1,0 +1,87 @@
+uuid: cf06f499-958a-4045-8ab4-3856cace0238
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.restricted_html
+    - node.type.article
+    - node.type.page
+    - node.type.product
+    - node.type.submission
+    - taxonomy.vocabulary.article_category
+    - taxonomy.vocabulary.product_category
+    - taxonomy.vocabulary.submission_category
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.community_submission
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - contextual
+    - file
+    - filter
+    - media
+    - navigation
+    - node
+    - path
+    - system
+    - taxonomy
+_core:
+  default_config_hash: og55Zu0F-q-X8zG0Ohrls49zws6IrmmosZS-30Es8vw
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access navigation'
+  - 'administer url aliases'
+  - 'create article content'
+  - 'create media'
+  - 'create page content'
+  - 'create product content'
+  - 'create submission content'
+  - 'create terms in article_category'
+  - 'create terms in product_category'
+  - 'create terms in submission_category'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete any article content'
+  - 'delete any media'
+  - 'delete any page content'
+  - 'delete any product content'
+  - 'delete any submission content'
+  - 'delete own files'
+  - 'edit any article content'
+  - 'edit any page content'
+  - 'edit any product content'
+  - 'edit any submission content'
+  - 'edit terms in article_category'
+  - 'edit terms in product_category'
+  - 'edit terms in submission_category'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'update any media'
+  - 'use community_submission transition approve'
+  - 'use community_submission transition create_new_draft'
+  - 'use community_submission transition reject'
+  - 'use community_submission transition send_back'
+  - 'use community_submission transition submit_for_review'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
+  - 'use text format basic_html'
+  - 'use text format restricted_html'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view media'
+  - 'view own unpublished content'
+  - 'view the administration theme'

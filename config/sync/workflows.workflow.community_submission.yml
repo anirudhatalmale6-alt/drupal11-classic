@@ -1,0 +1,73 @@
+uuid: ceac01b2-4d2d-4b7f-9f60-71a84a66a79e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.submission
+  module:
+    - content_moderation
+id: community_submission
+label: 'Community submission'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    needs_review:
+      label: 'Needs review'
+      weight: 1
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 2
+      published: true
+      default_revision: true
+    rejected:
+      label: Rejected
+      weight: 3
+      published: false
+      default_revision: true
+  transitions:
+    approve:
+      label: 'Approve and publish'
+      from:
+        - draft
+        - needs_review
+        - rejected
+      to: published
+      weight: 3
+    create_new_draft:
+      label: 'Create new draft'
+      from:
+        - draft
+      to: draft
+      weight: 0
+    reject:
+      label: 'Reject / unpublish'
+      from:
+        - needs_review
+        - published
+      to: rejected
+      weight: 4
+    send_back:
+      label: 'Send back to the contributor'
+      from:
+        - needs_review
+        - published
+      to: draft
+      weight: 2
+    submit_for_review:
+      label: 'Submit for review'
+      from:
+        - draft
+        - rejected
+      to: needs_review
+      weight: 1
+  entity_types:
+    node:
+      - submission
+  default_moderation_state: draft

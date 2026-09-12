@@ -1,0 +1,23 @@
+uuid: 6076a2d8-e482-4a29-8f1a-a51d81027bde
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.submission
+  module:
+    - node
+id: submission
+label: 'User entry'
+type: 'canonical_entities:node'
+pattern: '/community/[node:title]'
+selection_criteria:
+  bfcb0dfe-7249-4c2c-adae-090b08609a23:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      submission: submission
+selection_logic: and
+weight: 0
+relationships: {  }

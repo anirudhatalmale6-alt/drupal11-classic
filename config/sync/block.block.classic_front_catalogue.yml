@@ -1,0 +1,31 @@
+uuid: bf495d24-7323-4978-af58-a173137a4c0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.classic_catalogue
+  module:
+    - system
+    - views
+  theme:
+    - classic
+id: classic_front_catalogue
+theme: classic
+region: content_below
+weight: 5
+provider: null
+plugin: 'views_block:classic_catalogue-block_1'
+settings:
+  id: 'views_block:classic_catalogue-block_1'
+  label: 'From the catalogue'
+  label_display: visible
+  provider: views
+  views_label: 'From the catalogue'
+  items_per_page: 3
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      <front>
+      /journal

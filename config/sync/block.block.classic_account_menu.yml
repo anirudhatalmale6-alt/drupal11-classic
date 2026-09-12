@@ -1,0 +1,25 @@
+uuid: 518da756-28f2-4e05-82d4-131c3ae3e7b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - classic
+id: classic_account_menu
+theme: classic
+region: footer_third
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'Your account'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

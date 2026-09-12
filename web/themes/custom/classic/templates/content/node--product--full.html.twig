@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Product listing, full view: imagery on the left, description and specification
+ * on the right, stacking below 62rem.
+ */
+#}
+<article{{ attributes.addClass('classic-node', 'classic-node--full', 'classic-product') }}>
+
+  <div class="classic-product__grid">
+
+    <div class="classic-product__media">
+      {% if content.field_product_image|render|trim %}
+        {{ content.field_product_image }}
+      {% endif %}
+    </div>
+
+    <div class="classic-product__detail">
+      {% if availability_key %}
+        <span class="classic-badge classic-badge--{{ availability_key|replace({'_': '-'}) }}">{{ availability_label }}</span>
+      {% endif %}
+
+      {% if content.field_price|render|trim %}
+        <div class="classic-product__price">{{ content.field_price }}</div>
+      {% endif %}
+
+      <div class="classic-node__body">
+        {{ content.body }}
+      </div>
+
+      {# The remaining fields carry inline labels from the view display, which
+         .field--label-inline already styles as a specification list. #}
+      <div class="classic-spec">
+        {{ content|without('field_product_image', 'field_price', 'field_availability', 'body', 'links') }}
+      </div>
+
+      {% if content.links %}
+        <div class="classic-node__links">{{ content.links }}</div>
+      {% endif %}
+    </div>
+
+  </div>
+
+</article>

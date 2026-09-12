@@ -1,0 +1,11 @@
+uuid: dd7c21ee-270b-43b5-9a27-259becf80720
+langcode: en
+status: true
+dependencies: {  }
+name: 'Product Listing'
+type: product
+description: 'An item in the catalogue, with pricing, availability and imagery.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

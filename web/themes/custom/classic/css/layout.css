@@ -1,0 +1,215 @@
+/**
+ * @file
+ * Page frame: header, regions, footer, and the content/sidebar split.
+ */
+
+.classic-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.classic-shell {
+  width: 100%;
+  max-width: var(--w-wide);
+  margin: 0 auto;
+  padding: 0 var(--s-5);
+}
+
+@media (min-width: 48rem) {
+  .classic-shell {
+    padding: 0 var(--s-6);
+  }
+}
+
+/* Header ----------------------------------------------------------------- */
+
+.classic-header {
+  position: relative;
+  z-index: 20;
+  border-bottom: 1px solid var(--c-rule);
+  background: var(--c-paper);
+}
+
+.classic-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  min-height: 5rem;
+  padding-top: var(--s-4);
+  padding-bottom: var(--s-4);
+}
+
+.classic-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.classic-brand:hover,
+.classic-brand:focus {
+  color: inherit;
+}
+
+.classic-brand__mark {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: none;
+}
+
+.classic-brand__name {
+  font-family: var(--f-serif);
+  font-size: var(--t-lg);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.classic-brand__slogan {
+  display: block;
+  color: var(--c-ink-faint);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Primary navigation ----------------------------------------------------- */
+
+.classic-nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--c-rule-strong);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--c-ink);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.classic-nav__panel {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+}
+
+@media (max-width: 61.99rem) {
+  .classic-nav__panel {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--s-4) var(--s-5) var(--s-5);
+    background: var(--c-paper);
+    border-bottom: 1px solid var(--c-rule);
+    box-shadow: var(--shadow);
+  }
+
+  .classic-nav__panel[hidden] {
+    display: none;
+  }
+}
+
+@media (min-width: 62rem) {
+  .classic-nav__toggle {
+    display: none;
+  }
+
+  .classic-nav__panel[hidden] {
+    display: flex;
+  }
+}
+
+/* Main ------------------------------------------------------------------- */
+
+.classic-main {
+  flex: 1 0 auto;
+  padding: var(--s-7) 0 var(--s-8);
+}
+
+.classic-main__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-7);
+}
+
+@media (min-width: 62rem) {
+  .classic-main__grid--with-sidebar {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    gap: var(--s-8);
+  }
+}
+
+/* Prose columns are narrow on purpose — roughly 68 characters. */
+.classic-prose {
+  max-width: var(--w-prose);
+}
+
+.classic-centred {
+  margin-inline: auto;
+}
+
+/* Footer ----------------------------------------------------------------- */
+
+.classic-footer {
+  flex: none;
+  margin-top: var(--s-8);
+  padding: var(--s-8) 0 var(--s-5);
+  border-top: 1px solid var(--c-rule);
+  background: var(--c-paper-sunk);
+}
+
+.classic-footer__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-6);
+}
+
+@media (min-width: 40rem) {
+  .classic-footer__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 62rem) {
+  .classic-footer__columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.classic-footer__bottom {
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-rule);
+  color: var(--c-ink-faint);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+}
+
+/* Admin toolbar leaves the header where it is; nothing to offset because the
+   header is not fixed. This rule only keeps the skip link clear of it. */
+.classic-skip-link {
+  position: absolute;
+  top: var(--s-2);
+  left: var(--s-2);
+  z-index: 100;
+  padding: var(--s-2) var(--s-4);
+  background: var(--c-ink);
+  color: var(--c-paper);
+  border-radius: var(--radius);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  text-decoration: none;
+}

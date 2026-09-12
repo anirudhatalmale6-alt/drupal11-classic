@@ -1,0 +1,268 @@
+/**
+ * @file
+ * Design tokens, reset and element defaults.
+ */
+
+:root {
+  /* Palette — warm paper, soft ink, one claret accent. */
+  --c-paper: #fbf9f5;
+  --c-paper-sunk: #f4f0e8;
+  --c-paper-raised: #ffffff;
+  --c-ink: #1e1b17;
+  --c-ink-soft: #56504a;
+  --c-ink-faint: #857d73;
+  --c-rule: #e2dbcd;
+  --c-rule-strong: #cfc5b2;
+  --c-accent: #7a2e2e;
+  --c-accent-dark: #5a1f1f;
+  --c-accent-wash: #f3e9e6;
+
+  /* Type */
+  --f-serif: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* A modular scale, 1.25. Headings are clamped so they settle on phones. */
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-base: 1.125rem;
+  --t-md: 1.25rem;
+  --t-lg: clamp(1.35rem, 1.1rem + 0.8vw, 1.65rem);
+  --t-xl: clamp(1.7rem, 1.25rem + 1.6vw, 2.25rem);
+  --t-2xl: clamp(2.1rem, 1.4rem + 2.6vw, 3.1rem);
+  --t-3xl: clamp(2.6rem, 1.6rem + 3.6vw, 4rem);
+
+  /* Spacing */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+
+  /* Measure */
+  --w-prose: 40rem;
+  --w-wide: 72rem;
+  --w-full: 88rem;
+
+  --radius: 2px;
+  --shadow: 0 1px 2px rgba(30, 27, 23, 0.04), 0 8px 24px rgba(30, 27, 23, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--c-paper);
+  color: var(--c-ink);
+  font-family: var(--f-serif);
+  font-size: var(--t-base);
+  line-height: 1.7;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--s-4);
+  font-family: var(--f-serif);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--t-2xl); }
+h2 { font-size: var(--t-xl); }
+h3 { font-size: var(--t-lg); }
+h4 { font-size: var(--t-md); }
+h5,
+h6 {
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+figure,
+table {
+  margin: 0 0 var(--s-5);
+}
+
+a {
+  color: var(--c-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(122, 46, 46, 0.35);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--c-accent-dark);
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+blockquote {
+  padding-left: var(--s-5);
+  border-left: 2px solid var(--c-rule-strong);
+  color: var(--c-ink-soft);
+  font-style: italic;
+  font-size: var(--t-md);
+}
+
+hr {
+  height: 0;
+  margin: var(--s-7) 0;
+  border: 0;
+  border-top: 1px solid var(--c-rule);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure img {
+  border-radius: var(--radius);
+}
+
+figcaption {
+  margin-top: var(--s-2);
+  color: var(--c-ink-faint);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  letter-spacing: 0.02em;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+pre {
+  overflow-x: auto;
+  padding: var(--s-4);
+  background: var(--c-paper-sunk);
+  border: 1px solid var(--c-rule);
+  border-radius: var(--radius);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+}
+
+th,
+td {
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--c-rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: var(--t-xs);
+  color: var(--c-ink-soft);
+}
+
+/* Tables are the one block that will not reflow; let them scroll alone rather
+   than pushing the page sideways. */
+.classic-table-scroll {
+  overflow-x: auto;
+}
+
+/* Utility ---------------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  position: static !important;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  white-space: inherit;
+}
+
+.classic-eyebrow {
+  display: block;
+  margin-bottom: var(--s-2);
+  color: var(--c-ink-faint);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.classic-rule {
+  width: 3rem;
+  height: 1px;
+  margin: var(--s-5) 0;
+  background: var(--c-rule-strong);
+  border: 0;
+}

@@ -1,0 +1,24 @@
+uuid: da6208c4-9b9d-46f9-842e-df076c1e1672
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.classic_journal
+  module:
+    - views
+  theme:
+    - classic
+id: classic_latest_articles
+theme: classic
+region: footer_first
+weight: 0
+provider: null
+plugin: 'views_block:classic_journal-block_1'
+settings:
+  id: 'views_block:classic_journal-block_1'
+  label: 'From the journal'
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility: {  }

@@ -1,0 +1,9 @@
+uuid: 15656bf9-22a3-45a1-90a1-f435a9e2f84e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Submission categories'
+vid: submission_category
+description: 'Sections a visitor can file a community entry under.'
+weight: 0
+new_revision: false

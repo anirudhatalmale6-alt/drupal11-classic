@@ -1,0 +1,20 @@
+uuid: 944571d6-9395-4899-9b7a-1cc87b829891
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - classic
+id: classic_help
+theme: classic
+region: content_above
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

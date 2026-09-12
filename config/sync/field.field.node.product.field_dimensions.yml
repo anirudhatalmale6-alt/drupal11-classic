@@ -1,0 +1,19 @@
+uuid: f145afd4-dbe5-429d-ac21-d954f4d66d8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dimensions
+    - node.type.product
+id: node.product.field_dimensions
+field_name: field_dimensions
+entity_type: node
+bundle: product
+label: Dimensions
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

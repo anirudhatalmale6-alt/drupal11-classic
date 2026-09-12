@@ -1,0 +1,28 @@
+uuid: 770f7270-0977-4293-9e4e-68af333cca40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submission_category
+    - node.type.submission
+    - taxonomy.vocabulary.submission_category
+id: node.submission.field_submission_category
+field_name: field_submission_category
+entity_type: node
+bundle: submission
+label: Category
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      submission_category: submission_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+field_type: entity_reference

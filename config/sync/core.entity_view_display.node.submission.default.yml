@@ -1,0 +1,76 @@
+uuid: 84e6ed35-215b-41dd-bdfa-39db7030cecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.submission.body
+    - field.field.node.submission.field_contributor_location
+    - field.field.node.submission.field_contributor_name
+    - field.field.node.submission.field_submission_category
+    - field.field.node.submission.field_submission_image
+    - node.type.submission
+    - responsive_image.styles.wide
+  module:
+    - responsive_image
+    - text
+    - user
+id: node.submission.default
+targetEntityType: node
+bundle: submission
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_contributor_location:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_contributor_name:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_submission_category:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_submission_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: wide
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

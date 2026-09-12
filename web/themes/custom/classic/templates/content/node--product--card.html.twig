@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Product card, used by the Catalogue grid.
+ *
+ * availability_key / availability_label are set in classic_preprocess_node();
+ * reading the raw field value in Twig would print the machine name.
+ */
+#}
+<article{{ attributes.addClass('classic-card') }}>
+
+  {% if content.field_product_image|render|trim %}
+    <div class="classic-card__image">{{ content.field_product_image }}</div>
+  {% endif %}
+
+  <div class="classic-card__body">
+    {% if availability_key %}
+      <span class="classic-badge classic-badge--{{ availability_key|replace({'_': '-'}) }}">{{ availability_label }}</span>
+    {% endif %}
+
+    <h3 class="classic-card__title">
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h3>
+
+    {% if content.field_price|render|trim %}
+      <div class="classic-card__price">{{ content.field_price }}</div>
+    {% endif %}
+  </div>
+
+</article>

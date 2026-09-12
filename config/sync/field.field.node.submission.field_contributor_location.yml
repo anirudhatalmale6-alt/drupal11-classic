@@ -1,0 +1,19 @@
+uuid: 4c3c04a2-4ae7-4990-b8ab-d150eee09299
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributor_location
+    - node.type.submission
+id: node.submission.field_contributor_location
+field_name: field_contributor_location
+entity_type: node
+bundle: submission
+label: Location
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

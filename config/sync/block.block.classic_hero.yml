@@ -1,0 +1,30 @@
+uuid: fe4b4e85-2685-4a9b-8782-5b24b8647b87
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f7f686e3-0c67-466e-b441-a52fdba89850'
+  module:
+    - block_content
+    - system
+  theme:
+    - classic
+id: classic_hero
+theme: classic
+region: hero
+weight: 0
+provider: null
+plugin: 'block_content:f7f686e3-0c67-466e-b441-a52fdba89850'
+settings:
+  id: 'block_content:f7f686e3-0c67-466e-b441-a52fdba89850'
+  label: 'Front page hero'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      <front>
+      /journal

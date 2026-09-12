@@ -1,0 +1,24 @@
+uuid: 1afb9152-4889-4cfa-b8dd-007c58104c56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.submission
+  module:
+    - text
+id: node.submission.body
+field_name: body
+entity_type: node
+bundle: submission
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

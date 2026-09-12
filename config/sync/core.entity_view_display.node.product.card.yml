@@ -1,0 +1,66 @@
+uuid: 44cc2cfd-0ac9-4bfb-8fb3-41b11b945d69
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.product.body
+    - field.field.node.product.field_availability
+    - field.field.node.product.field_dimensions
+    - field.field.node.product.field_materials
+    - field.field.node.product.field_price
+    - field.field.node.product.field_product_category
+    - field.field.node.product.field_product_image
+    - field.field.node.product.field_sku
+    - node.type.product
+    - responsive_image.styles.narrow
+  module:
+    - options
+    - responsive_image
+    - user
+id: node.product.card
+targetEntityType: node
+bundle: product
+mode: card
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_availability:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_price:
+    type: number_decimal
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_product_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: narrow
+      image_link: content
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_dimensions: true
+  field_materials: true
+  field_product_category: true
+  field_sku: true
+  links: true

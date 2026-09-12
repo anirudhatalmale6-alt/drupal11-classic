@@ -1,0 +1,27 @@
+uuid: 5b5e6465-60b3-49dc-ab8a-a269b50ed43f
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+    - node.type.submission
+    - workflows.workflow.community_submission
+  module:
+    - content_moderation
+    - filter
+    - node
+    - system
+id: contributor
+label: Contributor
+weight: 3
+is_admin: false
+permissions:
+  - 'access content'
+  - 'create submission content'
+  - 'delete own submission content'
+  - 'edit own submission content'
+  - 'use community_submission transition create_new_draft'
+  - 'use community_submission transition submit_for_review'
+  - 'use text format restricted_html'
+  - 'view latest version'
+  - 'view own unpublished content'

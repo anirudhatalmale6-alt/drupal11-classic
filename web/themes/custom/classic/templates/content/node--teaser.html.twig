@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Teaser row, used by the Journal and Community listings.
+ */
+#}
+{% set image = content.field_image is defined ? content.field_image : content.field_submission_image|default(null) %}
+{% set has_image = image and image|render|trim is not empty %}
+
+<article{{ attributes.addClass('classic-teaser', has_image ? 'classic-teaser--with-image') }}>
+
+  {% if has_image %}
+    <div class="classic-teaser__image">{{ image }}</div>
+  {% endif %}
+
+  <div class="classic-teaser__text">
+    {% if content.field_article_category is defined and content.field_article_category|render|trim %}
+      <span class="classic-eyebrow">{{ content.field_article_category }}</span>
+    {% endif %}
+
+    <h2 class="classic-teaser__title">
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+
+    {% if display_submitted %}
+      <div class="classic-node__meta">
+        <time datetime="{{ node.getCreatedTime|date('c') }}">{{ node.getCreatedTime|date('j F Y') }}</time>
+      </div>
+    {% endif %}
+
+    {% if content.field_subtitle is defined and content.field_subtitle|render|trim %}
+      <div class="classic-node__standfirst">{{ content.field_subtitle }}</div>
+    {% endif %}
+
+    <div class="classic-teaser__summary">
+      {{ content|without('field_image', 'field_submission_image', 'field_subtitle', 'field_article_category', 'links') }}
+    </div>
+
+    {% if content.links %}
+      <div class="classic-teaser__more">{{ content.links }}</div>
+    {% endif %}
+  </div>
+
+</article>

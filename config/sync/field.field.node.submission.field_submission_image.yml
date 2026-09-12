@@ -1,0 +1,38 @@
+uuid: 3a47cf12-99aa-4724-b9b1-a1c58d1f81b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submission_image
+    - node.type.submission
+  module:
+    - image
+id: node.submission.field_submission_image
+field_name: field_submission_image
+entity_type: node
+bundle: submission
+label: Image
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'submissions/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: null
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

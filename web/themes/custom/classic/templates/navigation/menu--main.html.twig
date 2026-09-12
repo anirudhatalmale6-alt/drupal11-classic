@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Primary menu. One level plus children, rendered as a flat inline list.
+ */
+#}
+{% import _self as menus %}
+{{ menus.classic_links(items, attributes, 0) }}
+
+{% macro classic_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass('classic-menu') }}>
+    {% else %}
+      <ul class="classic-menu classic-menu--sub">
+    {% endif %}
+    {% for item in items %}
+      <li{{ item.attributes }}>
+        {{ link(item.title, item.url, { 'class': item.in_active_trail ? ['is-active'] : [] }) }}
+        {% if item.below %}
+          {{ menus.classic_links(item.below, attributes.removeClass('classic-menu'), menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,21 @@
+uuid: 2746c8c9-3aa6-4704-8596-4e40645b00d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_availability
+    - node.type.product
+  module:
+    - options
+id: node.product.field_availability
+field_name: field_availability
+entity_type: node
+bundle: product
+label: Availability
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

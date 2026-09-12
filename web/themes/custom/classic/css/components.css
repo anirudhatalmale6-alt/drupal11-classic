@@ -1,0 +1,740 @@
+/**
+ * @file
+ * Menus, nodes, teasers, cards, views, forms, pagers, messages.
+ */
+
+/* Primary menu ----------------------------------------------------------- */
+
+.classic-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 61.99rem) {
+  .classic-menu {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .classic-menu > li {
+    border-bottom: 1px solid var(--c-rule);
+  }
+
+  .classic-menu > li:last-child {
+    border-bottom: 0;
+  }
+}
+
+.classic-menu a {
+  display: inline-block;
+  padding: var(--s-2) 0;
+  color: var(--c-ink);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.classic-menu a:hover,
+.classic-menu a:focus {
+  color: var(--c-accent);
+  border-bottom-color: var(--c-accent);
+}
+
+.classic-menu a.is-active {
+  color: var(--c-accent);
+  border-bottom-color: var(--c-rule-strong);
+}
+
+/* Buttons ---------------------------------------------------------------- */
+
+.classic-button,
+.button,
+button.form-submit,
+input.form-submit,
+a.button {
+  display: inline-block;
+  padding: 0.7em 1.6em;
+  border: 1px solid var(--c-accent);
+  border-radius: var(--radius);
+  background: var(--c-accent);
+  color: var(--c-paper);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.classic-button:hover,
+.button:hover,
+button.form-submit:hover,
+input.form-submit:hover,
+a.button:hover {
+  background: var(--c-accent-dark);
+  border-color: var(--c-accent-dark);
+  color: var(--c-paper);
+}
+
+.classic-button--ghost,
+a.button--ghost {
+  background: transparent;
+  color: var(--c-accent);
+}
+
+.classic-button--ghost:hover,
+a.button--ghost:hover {
+  background: var(--c-accent-wash);
+  color: var(--c-accent-dark);
+}
+
+/* Hero ------------------------------------------------------------------- */
+
+.classic-hero {
+  padding: var(--s-9) 0 var(--s-8);
+  border-bottom: 1px solid var(--c-rule);
+  background: linear-gradient(180deg, var(--c-paper-sunk), var(--c-paper));
+  text-align: center;
+}
+
+.classic-hero__title {
+  max-width: 22ch;
+  margin-inline: auto;
+  font-size: var(--t-3xl);
+}
+
+.classic-hero__lede {
+  max-width: 46ch;
+  margin-inline: auto;
+  color: var(--c-ink-soft);
+  font-size: var(--t-md);
+}
+
+.classic-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+}
+
+/* Page title ------------------------------------------------------------- */
+
+.classic-page-title {
+  margin-bottom: var(--s-6);
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--c-rule);
+}
+
+/* Node ------------------------------------------------------------------- */
+
+.classic-node__header {
+  margin-bottom: var(--s-6);
+}
+
+.classic-node__standfirst {
+  margin-bottom: var(--s-4);
+  color: var(--c-ink-soft);
+  font-size: var(--t-md);
+  font-style: italic;
+}
+
+.classic-node__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  color: var(--c-ink-faint);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.classic-node__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.classic-node__body h2 {
+  margin-top: var(--s-7);
+}
+
+.classic-node__body h3 {
+  margin-top: var(--s-6);
+}
+
+.classic-node__figure {
+  /* Capped rather than full-bleed: a lead image much wider than the prose
+     column below it reads as a banner, not as part of the article. */
+  max-width: 46rem;
+  margin: 0 0 var(--s-6);
+}
+
+/* The responsive_image formatter stamps width/height from the fallback style
+   (325px). Without this the image lays out at 325px however large the srcset
+   candidate the browser picked. */
+.classic-node__figure img,
+.classic-card__image img,
+.classic-teaser__image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Inline-label fields read as a specification list: label column, value column,
+   hairline between rows. Depends on the theme's field.html.twig override —
+   stable9's own template emits no classes. */
+.classic-node--full .field--label-inline {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: var(--s-3);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--c-rule);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+}
+
+.classic-node--full .field--label-inline:last-child {
+  border-bottom: 0;
+}
+
+.classic-node--full .field--label-inline .field__label {
+  color: var(--c-ink-faint);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: var(--t-xs);
+  line-height: 1.9;
+}
+
+@media (max-width: 34rem) {
+  .classic-node--full .field--label-inline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+}
+
+/* Product, full view ----------------------------------------------------- */
+
+.classic-product__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-6);
+}
+
+@media (min-width: 62rem) {
+  .classic-product__grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--s-8);
+    align-items: start;
+  }
+}
+
+.classic-product__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.classic-product__detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.classic-product__price {
+  font-family: var(--f-sans);
+  font-size: var(--t-xl);
+  font-weight: 600;
+  font-feature-settings: 'tnum' 1;
+  line-height: 1;
+}
+
+.classic-spec {
+  margin-top: var(--s-2);
+}
+
+/* Teaser listing --------------------------------------------------------- */
+
+.classic-listing {
+  display: grid;
+  gap: var(--s-7);
+}
+
+.classic-teaser {
+  display: grid;
+  gap: var(--s-4);
+  padding-bottom: var(--s-7);
+  border-bottom: 1px solid var(--c-rule);
+}
+
+/* No :last-child rule on .classic-teaser itself: every teaser is the only
+   child of its own .views-row wrapper, so it would match all of them and the
+   rules between listing items would vanish. The row-level rule further down is
+   the one that trims the final item. */
+
+@media (min-width: 40rem) {
+  .classic-teaser--with-image {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: var(--s-6);
+    align-items: start;
+  }
+}
+
+.classic-teaser__image img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+.classic-teaser__title {
+  margin-bottom: var(--s-2);
+  font-size: var(--t-lg);
+}
+
+.classic-teaser__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.classic-teaser__title a:hover,
+.classic-teaser__title a:focus {
+  color: var(--c-accent);
+}
+
+.classic-teaser__summary {
+  color: var(--c-ink-soft);
+}
+
+.classic-teaser__more {
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Product card ----------------------------------------------------------- */
+
+.classic-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--c-paper-raised);
+  border: 1px solid var(--c-rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.classic-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.classic-card__image {
+  aspect-ratio: 4 / 3;
+  background: var(--c-paper-sunk);
+  overflow: hidden;
+}
+
+.classic-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.classic-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-5);
+}
+
+.classic-card__title {
+  margin: 0;
+  font-size: var(--t-md);
+  line-height: 1.25;
+}
+
+.classic-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.classic-card__title a:hover,
+.classic-card__title a:focus {
+  color: var(--c-accent);
+}
+
+.classic-card__price {
+  margin-top: auto;
+  padding-top: var(--s-3);
+  font-family: var(--f-sans);
+  font-size: var(--t-md);
+  font-weight: 600;
+  font-feature-settings: 'tnum' 1;
+}
+
+.classic-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.2em 0.7em;
+  border: 1px solid var(--c-rule-strong);
+  border-radius: 999px;
+  color: var(--c-ink-soft);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.classic-badge--in-stock {
+  border-color: #9db8a5;
+  background: #eef4ef;
+  color: #33543d;
+}
+
+.classic-badge--out-of-stock,
+.classic-badge--discontinued {
+  border-color: var(--c-rule-strong);
+  background: var(--c-paper-sunk);
+  color: var(--c-ink-faint);
+}
+
+.classic-badge--made-to-order {
+  border-color: #c8b08a;
+  background: #f8f1e6;
+  color: #7a5a2c;
+}
+
+/* Views ------------------------------------------------------------------ */
+
+.views-element-container > .view,
+.view {
+  margin-bottom: 0;
+}
+
+/* stable9's grid template emits .views-view-grid > .views-row > .views-col, and
+   puts an inline percentage width on every column. Only !important beats an
+   inline style, so that is what is used here; the CSS grid below is then the
+   single thing deciding the track count at any width. */
+.views-view-grid .views-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s-6);
+  margin-bottom: var(--s-6);
+}
+
+@media (min-width: 34rem) {
+  .views-view-grid .views-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Track the column count the View is configured for. auto-fill is wrong here:
+   stable9 only puts cols-N items inside each row, so a wider container would
+   leave an empty final track rather than pulling the next item up. */
+@media (min-width: 56rem) {
+  .views-view-grid.cols-2 .views-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .views-view-grid.cols-3 .views-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .views-view-grid.cols-4 .views-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .views-view-grid.cols-5 .views-row { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+.views-view-grid .views-col {
+  width: auto !important;
+  padding: 0 !important;
+  float: none !important;
+}
+
+/* Listing rows: each teaser is alone inside its own .views-row, so the
+   "last teaser loses its rule" case has to be matched on the row. */
+.views-row:last-child > .classic-teaser {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+/* Node links ("Read more") arrive as ul.links. */
+ul.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.view-empty {
+  padding: var(--s-6);
+  border: 1px dashed var(--c-rule-strong);
+  border-radius: var(--radius);
+  color: var(--c-ink-faint);
+  text-align: center;
+}
+
+/* stable9 prints the exposed form on its own, with no .view-filters wrapper. */
+.views-exposed-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s-4);
+  margin-bottom: var(--s-6);
+  padding: var(--s-4) var(--s-5);
+  background: var(--c-paper-sunk);
+  border: 1px solid var(--c-rule);
+  border-radius: var(--radius);
+}
+
+.views-exposed-form .form-item {
+  margin-bottom: 0;
+}
+
+.views-exposed-form select {
+  min-width: 14rem;
+  max-width: 20rem;
+}
+
+.views-exposed-form .form-actions {
+  display: flex;
+  gap: var(--s-2);
+}
+
+/* Forms ------------------------------------------------------------------ */
+
+.form-item {
+  margin-bottom: var(--s-5);
+}
+
+.form-item label,
+.fieldset-legend {
+  display: block;
+  margin-bottom: var(--s-2);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-ink-soft);
+}
+
+.form-required::after {
+  content: ' *';
+  color: var(--c-accent);
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='url'],
+input[type='number'],
+input[type='search'],
+input[type='tel'],
+input[type='date'],
+select,
+textarea {
+  width: 100%;
+  max-width: 34rem;
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--c-rule-strong);
+  border-radius: var(--radius);
+  background: var(--c-paper-raised);
+  color: var(--c-ink);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  line-height: 1.5;
+}
+
+textarea {
+  min-height: 12rem;
+  font-family: var(--f-serif);
+  font-size: var(--t-base);
+  line-height: 1.7;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--c-accent);
+  outline: 2px solid rgba(122, 46, 46, 0.18);
+  outline-offset: 0;
+}
+
+.description {
+  margin-top: var(--s-2);
+  color: var(--c-ink-faint);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  line-height: 1.5;
+}
+
+/* Honeypot's field is hidden by its own CSS; this is belt and braces for the
+   case where that library is not attached to a form. */
+.url-textfield,
+input[name='homepage_url'] {
+  display: none !important;
+}
+
+/* Messages --------------------------------------------------------------- */
+
+.messages {
+  margin-bottom: var(--s-6);
+  padding: var(--s-4) var(--s-5);
+  border-left: 3px solid var(--c-rule-strong);
+  border-radius: var(--radius);
+  background: var(--c-paper-sunk);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+}
+
+.messages--status {
+  border-left-color: #4a7a57;
+  background: #eef4ef;
+}
+
+.messages--warning {
+  border-left-color: #b98b2e;
+  background: #fbf4e6;
+}
+
+.messages--error {
+  border-left-color: var(--c-accent);
+  background: var(--c-accent-wash);
+}
+
+.messages__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.messages__item + .messages__item {
+  margin-top: var(--s-2);
+}
+
+/* Pager ------------------------------------------------------------------ */
+
+.pager__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-2);
+  margin: var(--s-7) 0 0;
+  padding: var(--s-5) 0 0;
+  border-top: 1px solid var(--c-rule);
+  list-style: none;
+}
+
+.pager__item a {
+  display: inline-block;
+  min-width: 2.5rem;
+  padding: 0.4em 0.7em;
+  border: 1px solid var(--c-rule);
+  border-radius: var(--radius);
+  color: var(--c-ink-soft);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  text-align: center;
+  text-decoration: none;
+}
+
+.pager__item a:hover,
+.pager__item a:focus {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+.pager__item.is-active a {
+  background: var(--c-ink);
+  border-color: var(--c-ink);
+  color: var(--c-paper);
+}
+
+/* Breadcrumb ------------------------------------------------------------- */
+
+.classic-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: 0 0 var(--s-5);
+  padding: 0;
+  list-style: none;
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.classic-breadcrumb li + li::before {
+  content: '/';
+  margin-right: var(--s-2);
+  color: var(--c-rule-strong);
+}
+
+.classic-breadcrumb a {
+  color: var(--c-ink-faint);
+  text-decoration: none;
+}
+
+.classic-breadcrumb a:hover {
+  color: var(--c-accent);
+}
+
+/* Blocks in the sidebar and footer --------------------------------------- */
+
+.classic-sidebar .block,
+.classic-footer .block {
+  margin-bottom: var(--s-6);
+}
+
+.classic-sidebar .block__title,
+.classic-footer .block__title {
+  margin-bottom: var(--s-3);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--c-rule);
+  font-family: var(--f-sans);
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+}
+
+.classic-sidebar ul,
+.classic-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.classic-sidebar li,
+.classic-footer li {
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--c-rule);
+}
+
+.classic-sidebar li:last-child,
+.classic-footer li:last-child {
+  border-bottom: 0;
+}
+
+.classic-footer a {
+  color: var(--c-ink-soft);
+  font-family: var(--f-sans);
+  font-size: var(--t-sm);
+  text-decoration: none;
+}
+
+.classic-footer a:hover,
+.classic-footer a:focus {
+  color: var(--c-accent);
+}

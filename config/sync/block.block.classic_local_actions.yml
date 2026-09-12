@@ -1,0 +1,18 @@
+uuid: 48e7d69e-565f-439f-830d-e7f2b9c3c1ae
+langcode: en
+status: true
+dependencies:
+  theme:
+    - classic
+id: classic_local_actions
+theme: classic
+region: content_above
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

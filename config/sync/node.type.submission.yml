@@ -1,0 +1,11 @@
+uuid: 0146214c-fa25-4b78-b682-00dae5cd5227
+langcode: en
+status: true
+dependencies: {  }
+name: 'User-Generated Entry'
+type: submission
+description: 'An entry submitted by a visitor. Always moderated before it appears publicly.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

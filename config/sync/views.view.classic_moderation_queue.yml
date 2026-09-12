@@ -1,0 +1,169 @@
+uuid: f072ad30-24f2-49a2-b1b4-14e1b2f43248
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+    - node
+    - user
+id: classic_moderation_queue
+label: 'Moderation queue'
+module: views
+description: 'Unpublished content waiting for an editorial decision.'
+tag: classic
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Moderation queue'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: Title
+          settings:
+            link_to_entity: true
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: field
+          label: Type
+        moderation_state:
+          id: moderation_state
+          table: node_field_data
+          field: moderation_state
+          entity_type: node
+          entity_field: moderation_state
+          plugin_id: field
+          label: State
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: uid
+          entity_type: user
+          entity_field: name
+          plugin_id: field
+          label: Author
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          entity_type: node
+          entity_field: changed
+          plugin_id: field
+          label: Updated
+          type: timestamp
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 50
+          quantity: 5
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+      access:
+        type: perm
+        options:
+          perm: 'view any unpublished content'
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'Nothing is waiting for review.'
+      sorts:
+        changed:
+          id: changed
+          table: node_field_data
+          field: changed
+          entity_type: node
+          entity_field: changed
+          plugin_id: date
+          order: DESC
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '0'
+          group: 1
+      style:
+        type: table
+        options:
+          row_class: ''
+          columns: {  }
+          default: changed
+          info: {  }
+          order: desc
+      row:
+        type: fields
+        options: {  }
+      query:
+        type: views_query
+        options: {  }
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          admin_label: Author
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
+          required: false
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: admin/content/queue
+      menu:
+        type: tab
+        title: 'Moderation queue'
+        description: ''
+        weight: 10
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }

@@ -1,0 +1,91 @@
+uuid: 7aeabf81-3f37-4cae-8d78-314f2b0eb6f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.submission.body
+    - field.field.node.submission.field_contributor_location
+    - field.field.node.submission.field_contributor_name
+    - field.field.node.submission.field_submission_category
+    - field.field.node.submission.field_submission_image
+    - image.style.thumbnail
+    - node.type.submission
+    - workflows.workflow.community_submission
+  module:
+    - content_moderation
+    - image
+    - text
+id: node.submission.default
+targetEntityType: node
+bundle: submission
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_contributor_location:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contributor_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_submission_category:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_submission_image:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  meta: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true
+  url_redirects: true

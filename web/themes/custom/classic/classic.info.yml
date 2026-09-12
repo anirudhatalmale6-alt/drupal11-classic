@@ -1,0 +1,36 @@
+name: Classic
+type: theme
+description: 'A classic, elegant, fully responsive theme. Traditional typography, generous whitespace, a restrained palette.'
+core_version_requirement: ^10 || ^11
+# No base theme on purpose. stable9 is deprecated in Drupal 11 and removed in
+# Drupal 12 — inheriting it would put a removal date on this theme. With
+# "base theme: false" the templates come straight from the core modules that
+# define them, so core's own improvements arrive with each update and there is
+# nothing here to reconcile at upgrade time.
+base theme: false
+logo: images/logo.svg
+screenshot: screenshot.png
+
+libraries:
+  - classic/global
+
+libraries-override:
+  # Core's built-in filter tips styling clashes with the form styling below.
+  filter/caption: false
+
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  hero: 'Hero'
+  highlighted: 'Highlighted'
+  breadcrumb: 'Breadcrumb'
+  content_above: 'Above content'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  content_below: 'Below content'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_bottom: 'Footer bottom'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'

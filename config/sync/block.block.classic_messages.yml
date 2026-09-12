@@ -1,0 +1,20 @@
+uuid: 3ac94137-2b29-46ed-884b-2c88a12f7a8b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - classic
+id: classic_messages
+theme: classic
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

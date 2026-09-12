@@ -1,0 +1,23 @@
+uuid: c3eaadc8-241c-4185-9e06-399a4eb213fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product
+  module:
+    - node
+id: product
+label: 'Product listing'
+type: 'canonical_entities:node'
+pattern: '/catalogue/[node:title]'
+selection_criteria:
+  56a9eca3-e734-4478-8023-da284f50bdc3:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      product: product
+selection_logic: and
+weight: 0
+relationships: {  }

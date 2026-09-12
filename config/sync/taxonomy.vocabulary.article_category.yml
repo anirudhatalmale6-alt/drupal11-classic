@@ -1,0 +1,9 @@
+uuid: 50579a03-a296-40ec-98e9-3e5842a5ad96
+langcode: en
+status: true
+dependencies: {  }
+name: 'Article categories'
+vid: article_category
+description: 'Sections used to group articles and blog posts.'
+weight: 0
+new_revision: false

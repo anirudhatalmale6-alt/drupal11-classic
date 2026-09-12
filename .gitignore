@@ -1,0 +1,43 @@
+# Composer-managed. Restored with `composer install`.
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Files Drupal's scaffold plugin writes into the docroot.
+/web/.csslintrc
+/web/.editorconfig
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitattributes
+/web/.ht.router.php
+/web/.htaccess
+/web/INSTALL.txt
+/web/README.md
+/web/autoload.php
+/web/example.gitignore
+/web/index.php
+/web/robots.txt
+/web/update.php
+/web/web.config
+
+# Site-specific: database credentials, hash salt, uploads, the SQLite file.
+/web/sites/*/settings.php
+/web/sites/*/settings.local.php
+/web/sites/*/services.yml
+/web/sites/*/files/
+/web/sites/simpletest/
+
+# The local SQLite database — user accounts and password hashes live in here.
+# Drush writes it under web/default/files when given a relative --db-url.
+/web/default/
+*.sqlite
+.ht.sqlite*
+
+# Local build artefacts.
+# (placeholder images are committed under assets/placeholders)
+*.sql
+*.sql.gz
+.DS_Store

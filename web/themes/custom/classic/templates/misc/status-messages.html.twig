@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Status, warning and error messages.
+ *
+ * Core's template emits an unclassed <div> per message type, so the theme adds
+ * messages / messages--<type> here and styles those.
+ */
+#}
+<div data-drupal-messages>
+  {% for type, messages in message_list %}
+    {%
+      set classes = [
+        'messages',
+        'messages--' ~ type,
+      ]
+    %}
+    <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label')|merge({'class': classes}) }}>
+      {% if type == 'error' %}
+        <div role="alert">
+      {% endif %}
+      {% if status_headings[type] %}
+        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+      {% endif %}
+      {% if messages|length > 1 %}
+        <ul class="messages__list">
+          {% for message in messages %}
+            <li class="messages__item">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ messages|first }}
+      {% endif %}
+      {% if type == 'error' %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Preprocess for the Classic theme.
+ */
+
+use Drupal\Core\Field\FieldItemListInterface;
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function classic_preprocess_html(array &$variables): void {
+  $route = \Drupal::routeMatch()->getRouteName();
+  if ($route) {
+    $variables['attributes']['class'][] = 'route--' . str_replace(['.', '_'], '-', $route);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function classic_preprocess_page(array &$variables): void {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['site_slogan'] = $config->get('slogan');
+  $variables['front_page'] = \Drupal::urlGenerator()->generateFromRoute('<front>');
+
+  $logo = theme_get_setting('logo.url');
+  $variables['logo'] = $logo ?: NULL;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function classic_preprocess_node(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  if ($node->hasField('field_availability')) {
+    $field = $node->get('field_availability');
+    if ($field instanceof FieldItemListInterface && !$field->isEmpty()) {
+      $key = $field->first()->value;
+      $allowed = $field->getFieldDefinition()
+        ->getFieldStorageDefinition()
+        ->getSetting('allowed_values');
+      $variables['availability_key'] = $key;
+      // Fall back to the raw key rather than printing nothing if an editor adds
+      // a value to the list and forgets the label.
+      $variables['availability_label'] = $allowed[$key] ?? $key;
+    }
+  }
+
+  $variables['author_name'] = $node->getOwner() ? $node->getOwner()->getDisplayName() : NULL;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function classic_preprocess_block(array &$variables): void {
+  if (!empty($variables['configuration']['label_display']) && !empty($variables['label'])) {
+    $variables['attributes']['class'][] = 'block--has-title';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block templates.
+ */
+function classic_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
+  if (!empty($variables['elements']['#id'])) {
+    $suggestions[] = 'block__' . str_replace('-', '_', $variables['elements']['#id']);
+  }
+}

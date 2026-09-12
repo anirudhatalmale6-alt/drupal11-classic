@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Default (full) node display.
+ */
+#}
+<article{{ attributes.addClass('classic-node', 'classic-node--full') }}>
+
+  <header class="classic-node__header classic-prose">
+    {% if label and not page %}
+      <h2 class="classic-node__title">
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% endif %}
+
+    {% if content.field_subtitle|render|trim %}
+      <div class="classic-node__standfirst">{{ content.field_subtitle }}</div>
+    {% endif %}
+
+    {% if display_submitted %}
+      <div class="classic-node__meta">
+        {% if node.getCreatedTime %}
+          <time datetime="{{ node.getCreatedTime|date('c') }}">{{ node.getCreatedTime|date('j F Y') }}</time>
+        {% endif %}
+        {% if author_name %}
+          <span>{{ 'By'|t }} {{ author_name }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+  </header>
+
+  {% set lead_image = content.field_image is defined ? content.field_image : (content.field_product_image is defined ? content.field_product_image : content.field_submission_image|default(null)) %}
+  {% if lead_image and lead_image|render|trim %}
+    <figure class="classic-node__figure">{{ lead_image }}</figure>
+  {% endif %}
+
+  <div class="classic-node__body classic-prose">
+    {{ content|without('field_subtitle', 'field_image', 'field_product_image', 'field_submission_image', 'links') }}
+  </div>
+
+  {% if content.links %}
+    <div class="classic-node__links classic-prose">{{ content.links }}</div>
+  {% endif %}
+
+</article>
